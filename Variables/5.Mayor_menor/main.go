@@ -4,17 +4,30 @@ package main
 import "fmt"
 
 func main() {
-	var Numeros [5]uint8
-	fmt.Scanln(&Numeros[0])
-	fmt.Scanln(&Numeros[1])
-	fmt.Scanln(&Numeros[2])
-	fmt.Scanln(&Numeros[3])
-	fmt.Scanln(&Numeros[4])
+	fmt.Println("Escribe una lista de numeros para hallar el menor y mayor valor.")
+	var numeros [5]int
+	fmt.Scanln(&numeros[0])
+	fmt.Scanln(&numeros[1])
+	fmt.Scanln(&numeros[2])
+	fmt.Scanln(&numeros[3])
+	fmt.Scanln(&numeros[4])
 
 	var (
-		Numero_menor uint8
-		Numero_mayor uint8
+		numero_menor int = numeros[0]
+		numero_mayor int = numeros[0]
 	)
 
-	fmt.Print(Numero_menor, Numero_mayor)
+	for _, numero := range numeros {
+		if numero < numero_menor {
+			numero_menor = numero
+		}
+	}
+
+	for _, numero := range numeros {
+		if numero > numero_mayor {
+			numero_mayor = numero
+		}
+	}
+	fmt.Println("El numero menor es: ", numero_menor)
+	fmt.Println("El número mayor es: ", numero_mayor)
 }
